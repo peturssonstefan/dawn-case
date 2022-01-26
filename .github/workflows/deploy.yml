@@ -41,5 +41,7 @@ jobs:
       with:
         azcliversion: 2.30.0
         inlineScript: |
-          az container create --name dawn --image peturssonstefan/dawn --ip-address public --resource-group primary
+          az container create --environment-variables 'ADMIN_KEY'=''$ADMIN_KEY'' --name dawn --image peturssonstefan/dawn --ip-address public --resource-group primary
           az container restart --name dawn --resource-group primary
+      env: 
+        ADMIN_KEY: ${{ secrets.ADMIN_KEY }}
