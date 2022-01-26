@@ -1,6 +1,8 @@
 name: 'Deploy stage'
 on:
   push:
+    branches:
+      - main
 
 jobs:
   build:
