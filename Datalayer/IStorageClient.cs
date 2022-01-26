@@ -1,6 +1,6 @@
 using aperture_case.Models;
 
-namespace Aperture.Datalayer; 
+namespace aperture_case.Datalayer; 
 
 public interface IStorageClient {
     public Result StoreActivationCode(ActivationCode code);
