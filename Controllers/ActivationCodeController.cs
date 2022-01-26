@@ -10,11 +10,11 @@ namespace aperture_case.Controllers;
 public class ActivationCodeController : ControllerBase
 {
     private IActivationCodeService service;  
-    private readonly ILogger<ActivationCodeController> _logger;
+    private readonly ILogger<ActivationCodeController> logger;
     public ActivationCodeController(ILogger<ActivationCodeController> logger, IActivationCodeService service)
     {
         this.service = service; 
-        _logger = logger;
+        this.logger = logger;
     }
 
     [HttpGet(Name = "GetActivationCode")]

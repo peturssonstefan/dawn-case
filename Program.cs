@@ -12,20 +12,26 @@ var config = new Config(adminKey, testKey);
 var storageClient = new StorageClient();  
 var serviceFac = new ServiceFactory(config, storageClient); 
 var acService = serviceFac.GetActivationCodeService(); 
+var userService = serviceFac.GetUserService(acService); 
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<IActivationCodeService>(acService);
+builder.Services.AddSingleton<IUserService>(userService);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    // app.UseSwagger();
+    // app.UseSwaggerUI();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
