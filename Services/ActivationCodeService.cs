@@ -25,9 +25,8 @@ public class ActivationCodeService : IActivationCodeService
         
         return new ResultWithValue<ActivationCode>(null, false, "Provided key does not have sufficient privileges"); 
     }
-
     public Result IsActivationCodeValid(int code)
     {
-        throw new NotImplementedException(); 
+        return this.storageClient.GetActivationCode(code); 
     }
 }

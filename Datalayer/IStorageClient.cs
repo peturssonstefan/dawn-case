@@ -6,4 +6,7 @@ public interface IStorageClient {
     public Result StoreActivationCode(ActivationCode code);
 
     public ResultWithValue<ActivationCode> GetActivationCode(int acCode); 
+
+    public Result StoreUser(User user); 
+
 }

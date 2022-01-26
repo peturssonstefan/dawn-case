@@ -18,4 +18,9 @@ public class ServiceFactory : IServiceFactory
     {
         return new ActivationCodeService(config, storageClient); 
     }
+
+    public IUserService GetUserService(IActivationCodeService acService)
+    {
+        return new UserService(acService, storageClient);
+    }
 }
